@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("4419b512-d3c7-4f76-97ab-cf52beeffa65")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("BackEnd_Intecnologia")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
