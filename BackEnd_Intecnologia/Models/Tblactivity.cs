@@ -10,7 +10,8 @@ namespace BackEnd_Intecnologia.Models
     public partial class Tblactivity
     {
         [Key]
-        public int IdActivity { get; set; }
+        [Column("PKIdActivity")]
+        public int PkidActivity { get; set; }
         [StringLength(100)]
         public string DescriptionActivity { get; set; } = null!;
         [Column(TypeName = "datetime")]

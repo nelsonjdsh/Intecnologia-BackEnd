@@ -15,7 +15,8 @@ namespace BackEnd_Intecnologia.Models
         }
 
         [Key]
-        public int IdRole { get; set; }
+        [Column("PKIdRole")]
+        public int PkidRole { get; set; }
         [StringLength(500)]
         public string? DescriptionRole { get; set; }
         [Column(TypeName = "datetime")]

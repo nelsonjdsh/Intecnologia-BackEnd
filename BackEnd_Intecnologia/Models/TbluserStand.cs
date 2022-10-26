@@ -10,17 +10,19 @@ namespace BackEnd_Intecnologia.Models
     public partial class TbluserStand
     {
         [Key]
-        public int IdUser { get; set; }
+        [Column("FKIdUser")]
+        public int FkidUser { get; set; }
         [Key]
-        public int IdStand { get; set; }
+        [Column("FKIdStand")]
+        public int FkidStand { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? CreationDateUserStand { get; set; }
 
-        [ForeignKey("IdStand")]
+        [ForeignKey("FkidStand")]
         [InverseProperty("TbluserStands")]
-        public virtual Tblstand IdStandNavigation { get; set; } = null!;
-        [ForeignKey("IdUser")]
+        public virtual Tblstand FkidStandNavigation { get; set; } = null!;
+        [ForeignKey("FkidUser")]
         [InverseProperty("TbluserStands")]
-        public virtual Tbluser IdUserNavigation { get; set; } = null!;
+        public virtual Tbluser FkidUserNavigation { get; set; } = null!;
     }
 }
