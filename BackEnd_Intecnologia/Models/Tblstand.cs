@@ -15,7 +15,8 @@ namespace BackEnd_Intecnologia.Models
         }
 
         [Key]
-        public int IdStand { get; set; }
+        [Column("PKIdStand")]
+        public int PkidStand { get; set; }
         [StringLength(500)]
         public string? DescriptionStand { get; set; }
         [Column(TypeName = "datetime")]
@@ -25,7 +26,7 @@ namespace BackEnd_Intecnologia.Models
         [ForeignKey("IdStandType")]
         [InverseProperty("Tblstands")]
         public virtual TblstandType? IdStandTypeNavigation { get; set; }
-        [InverseProperty("IdStandNavigation")]
+        [InverseProperty("FkidStandNavigation")]
         public virtual ICollection<TbluserStand> TbluserStands { get; set; }
     }
 }

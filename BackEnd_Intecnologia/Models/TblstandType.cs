@@ -15,7 +15,8 @@ namespace BackEnd_Intecnologia.Models
         }
 
         [Key]
-        public int IdStandType { get; set; }
+        [Column("PKIdStandType")]
+        public int PkidStandType { get; set; }
         [StringLength(500)]
         public string DescriptionStandType { get; set; } = null!;
         [Column(TypeName = "datetime")]

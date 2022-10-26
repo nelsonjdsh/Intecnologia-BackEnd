@@ -38,17 +38,17 @@ namespace BackEnd_Intecnologia.Models
         {
             modelBuilder.Entity<Tblactivity>(entity =>
             {
-                entity.HasKey(e => e.IdActivity)
+                entity.HasKey(e => e.PkidActivity)
                     .HasName("PK__Activity__A117F6C409328BA2");
 
-                entity.Property(e => e.IdActivity).ValueGeneratedNever();
+                entity.Property(e => e.PkidActivity).ValueGeneratedNever();
 
                 entity.Property(e => e.CreationDateActivity).HasDefaultValueSql("(getdate())");
             });
 
             modelBuilder.Entity<Tblmessage>(entity =>
             {
-                entity.HasKey(e => e.IdMessage)
+                entity.HasKey(e => e.PkidMessage)
                     .HasName("PK__Message__A33138E6D58B9F02");
 
                 entity.Property(e => e.CreationDateMessage).HasDefaultValueSql("(getdate())");
@@ -66,7 +66,7 @@ namespace BackEnd_Intecnologia.Models
 
             modelBuilder.Entity<Tblrole>(entity =>
             {
-                entity.HasKey(e => e.IdRole)
+                entity.HasKey(e => e.PkidRole)
                     .HasName("PK__Role__34ADFA60606934B9");
 
                 entity.Property(e => e.CreationDateRole).HasDefaultValueSql("(getdate())");
@@ -74,7 +74,7 @@ namespace BackEnd_Intecnologia.Models
 
             modelBuilder.Entity<Tblstand>(entity =>
             {
-                entity.HasKey(e => e.IdStand)
+                entity.HasKey(e => e.PkidStand)
                     .HasName("PK__Stand__3FD9CE34C3DCD6E0");
 
                 entity.Property(e => e.CreationDateStand).HasDefaultValueSql("(getdate())");
@@ -87,7 +87,7 @@ namespace BackEnd_Intecnologia.Models
 
             modelBuilder.Entity<TblstandType>(entity =>
             {
-                entity.HasKey(e => e.IdStandType)
+                entity.HasKey(e => e.PkidStandType)
                     .HasName("PK__StandTyp__927BED91914B0838");
 
                 entity.Property(e => e.CreationDateStandType).HasDefaultValueSql("(getdate())");
@@ -95,7 +95,7 @@ namespace BackEnd_Intecnologia.Models
 
             modelBuilder.Entity<Tbluser>(entity =>
             {
-                entity.HasKey(e => e.IdUser)
+                entity.HasKey(e => e.PkidUser)
                     .HasName("PK__User__D03DEDCB509B23A5");
 
                 entity.Property(e => e.CreationDateUser).HasDefaultValueSql("(getdate())");
@@ -115,27 +115,27 @@ namespace BackEnd_Intecnologia.Models
 
             modelBuilder.Entity<TbluserStand>(entity =>
             {
-                entity.HasKey(e => new { e.IdUser, e.IdStand })
+                entity.HasKey(e => new { e.FkidUser, e.FkidStand })
                     .HasName("PK__User_Sta__83C07128AB526080");
 
                 entity.Property(e => e.CreationDateUserStand).HasDefaultValueSql("(getdate())");
 
-                entity.HasOne(d => d.IdStandNavigation)
+                entity.HasOne(d => d.FkidStandNavigation)
                     .WithMany(p => p.TbluserStands)
-                    .HasForeignKey(d => d.IdStand)
+                    .HasForeignKey(d => d.FkidStand)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_User_Stand.Id_Stand");
 
-                entity.HasOne(d => d.IdUserNavigation)
+                entity.HasOne(d => d.FkidUserNavigation)
                     .WithMany(p => p.TbluserStands)
-                    .HasForeignKey(d => d.IdUser)
+                    .HasForeignKey(d => d.FkidUser)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_User_Stand.Id_User");
             });
 
             modelBuilder.Entity<TbluserType>(entity =>
             {
-                entity.HasKey(e => e.IdUserType)
+                entity.HasKey(e => e.PkidUserType)
                     .HasName("PK__UserType__DC992C7E143BBBC2");
 
                 entity.Property(e => e.CreationDateUserType).HasDefaultValueSql("(getdate())");

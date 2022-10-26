@@ -17,7 +17,8 @@ namespace BackEnd_Intecnologia.Models
         }
 
         [Key]
-        public int IdUser { get; set; }
+        [Column("PKIdUser")]
+        public int PkidUser { get; set; }
         [StringLength(100)]
         public string EmailUser { get; set; } = null!;
         [StringLength(100)]
@@ -40,7 +41,7 @@ namespace BackEnd_Intecnologia.Models
         public virtual ICollection<Tblmessage> TblmessageIdRecieverNavigations { get; set; }
         [InverseProperty("IdSenderNavigation")]
         public virtual ICollection<Tblmessage> TblmessageIdSenderNavigations { get; set; }
-        [InverseProperty("IdUserNavigation")]
+        [InverseProperty("FkidUserNavigation")]
         public virtual ICollection<TbluserStand> TbluserStands { get; set; }
     }
 }

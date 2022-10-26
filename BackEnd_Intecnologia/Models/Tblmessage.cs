@@ -10,7 +10,8 @@ namespace BackEnd_Intecnologia.Models
     public partial class Tblmessage
     {
         [Key]
-        public int IdMessage { get; set; }
+        [Column("PKIdMessage")]
+        public int PkidMessage { get; set; }
         public int? IdSender { get; set; }
         public int? IdReciever { get; set; }
         [Column(TypeName = "datetime")]

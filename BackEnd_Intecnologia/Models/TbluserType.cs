@@ -15,7 +15,8 @@ namespace BackEnd_Intecnologia.Models
         }
 
         [Key]
-        public int IdUserType { get; set; }
+        [Column("PKIdUserType")]
+        public int PkidUserType { get; set; }
         [StringLength(500)]
         public string? DescriptionUserType { get; set; }
         [Column(TypeName = "datetime")]
