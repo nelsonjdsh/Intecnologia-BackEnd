@@ -1,9 +1,19 @@
 using BackEnd_Intecnologia.Models;
+using BackEnd_Intecnologia.Services;
+using DotNetify;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var misReglasCors = "ReglasCors";
+builder.Services.AddCors(option =>
+	option.AddPolicy(name: misReglasCors,
+		builder =>
+		{
+			builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+		}
+	)
+);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -13,16 +23,18 @@ var apikey = builder.Configuration["ConnectionStrings:BACKConnection"];
 builder.Services.AddDbContext<IntecContext>(options =>
 				options.UseSqlServer(builder.Configuration.GetConnectionString("BACKConnection")));
 builder.Services.AddMemoryCache();
-
+builder.Services.AddScoped<IUserServices, UserServices>();
 var app = builder.Build();
+
+app.UseRouting();
 
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
-	app.UseSwagger();
+app.UseSwagger();
 	app.UseSwaggerUI();
 //}
-
+app.UseCors(misReglasCors);
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
