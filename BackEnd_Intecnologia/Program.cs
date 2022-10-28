@@ -25,6 +25,8 @@ builder.Services.AddDbContext<IntecContext>(options =>
 builder.Services.AddMemoryCache();
 builder.Services.AddScoped<IUserServices, UserServices>();
 builder.Services.AddScoped<IAssignStandServices, StandServices>();
+builder.Services.AddScoped<IMessageServices, MessageServices>();
+
 
 var app = builder.Build();
 
