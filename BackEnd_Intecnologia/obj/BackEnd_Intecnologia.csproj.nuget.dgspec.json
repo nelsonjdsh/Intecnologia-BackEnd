@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Deivy\\Source\\Repos\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj": {}
+    "C:\\Users\\Adm-PC\\source\\repos\\BackEnd_Intecnologia\\Backend_Intecnologia\\BackEnd_Intecnologia.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Deivy\\Source\\Repos\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj": {
+    "C:\\Users\\Adm-PC\\source\\repos\\BackEnd_Intecnologia\\Backend_Intecnologia\\BackEnd_Intecnologia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Deivy\\Source\\Repos\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj",
+        "projectUniqueName": "C:\\Users\\Adm-PC\\source\\repos\\BackEnd_Intecnologia\\Backend_Intecnologia\\BackEnd_Intecnologia.csproj",
         "projectName": "BackEnd_Intecnologia",
-        "projectPath": "C:\\Users\\Deivy\\Source\\Repos\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj",
-        "packagesPath": "C:\\Users\\Deivy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Deivy\\Source\\Repos\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\obj\\",
+        "projectPath": "C:\\Users\\Adm-PC\\source\\repos\\BackEnd_Intecnologia\\Backend_Intecnologia\\BackEnd_Intecnologia.csproj",
+        "packagesPath": "C:\\Users\\Adm-PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Adm-PC\\source\\repos\\BackEnd_Intecnologia\\Backend_Intecnologia\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Deivy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Adm-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -79,7 +84,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -91,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

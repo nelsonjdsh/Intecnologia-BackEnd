@@ -24,6 +24,7 @@ namespace BackEnd_Intecnologia.Models
         public virtual DbSet<Tbluser> Tblusers { get; set; } = null!;
         public virtual DbSet<TbluserStand> TbluserStands { get; set; } = null!;
         public virtual DbSet<TbluserType> TbluserTypes { get; set; } = null!;
+        public virtual DbSet<Vwactivity> Vwactivities { get; set; } = null!;
         public virtual DbSet<Vwuser> Vwusers { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -139,6 +140,11 @@ namespace BackEnd_Intecnologia.Models
                     .HasName("PK__UserType__DC992C7E143BBBC2");
 
                 entity.Property(e => e.CreationDateUserType).HasDefaultValueSql("(getdate())");
+            });
+
+            modelBuilder.Entity<Vwactivity>(entity =>
+            {
+                entity.ToView("VWActivity");
             });
 
             modelBuilder.Entity<Vwuser>(entity =>

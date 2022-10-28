@@ -14,6 +14,8 @@ namespace BackEnd_Intecnologia.Models
         public int PkidMessage { get; set; }
         public int? IdSender { get; set; }
         public int? IdReciever { get; set; }
+        [Column(TypeName = "text")]
+        public string? DescripcionMessage { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? CreationDateMessage { get; set; }
 
