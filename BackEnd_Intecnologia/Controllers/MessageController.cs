@@ -1,11 +1,12 @@
 ﻿using BackEnd_Intecnologia.DTO;
 using BackEnd_Intecnologia.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BackEnd_Intecnologia.Controllers
 {
-    [Route("api/[controller]")]
+    [EnableCors("ReglasCors")]
     [Route("api/[controller]")]
     [ApiController]
     public class MessageController : ControllerBase
