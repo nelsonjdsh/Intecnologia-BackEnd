@@ -24,6 +24,8 @@ builder.Services.AddDbContext<IntecContext>(options =>
 				options.UseSqlServer(builder.Configuration.GetConnectionString("BACKConnection")));
 builder.Services.AddMemoryCache();
 builder.Services.AddScoped<IUserServices, UserServices>();
+builder.Services.AddScoped<IAssignStandServices, StandServices>();
+
 var app = builder.Build();
 
 app.UseRouting();
