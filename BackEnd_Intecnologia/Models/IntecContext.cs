@@ -26,6 +26,7 @@ namespace BackEnd_Intecnologia.Models
         public virtual DbSet<TbluserType> TbluserTypes { get; set; } = null!;
         public virtual DbSet<Vwactivity> Vwactivities { get; set; } = null!;
         public virtual DbSet<Vwuser> Vwusers { get; set; } = null!;
+        public virtual DbSet<VwuserStand> VwuserStands { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -41,8 +42,6 @@ namespace BackEnd_Intecnologia.Models
             {
                 entity.HasKey(e => e.PkidActivity)
                     .HasName("PK__Activity__A117F6C409328BA2");
-
-                entity.Property(e => e.PkidActivity).ValueGeneratedNever();
 
                 entity.Property(e => e.CreationDateActivity).HasDefaultValueSql("(getdate())");
             });
@@ -152,6 +151,11 @@ namespace BackEnd_Intecnologia.Models
                 entity.ToView("VWUser");
 
                 entity.Property(e => e.IdUser).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<VwuserStand>(entity =>
+            {
+                entity.ToView("VWUserStand");
             });
 
             OnModelCreatingPartial(modelBuilder);
