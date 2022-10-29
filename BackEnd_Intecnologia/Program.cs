@@ -25,6 +25,7 @@ builder.Services.AddMemoryCache();
 builder.Services.AddScoped<IUserServices, UserServices>();
 builder.Services.AddScoped<IAssignStandServices, StandServices>();
 builder.Services.AddScoped<IMessageServices, MessageServices>();
+builder.Services.AddScoped<IActivityServices, ActivityServices>();
 
 
 var app = builder.Build();
