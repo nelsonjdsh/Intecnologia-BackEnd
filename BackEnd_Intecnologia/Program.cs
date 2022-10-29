@@ -1,6 +1,5 @@
 using BackEnd_Intecnologia.Models;
 using BackEnd_Intecnologia.Services;
-using DotNetify;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
