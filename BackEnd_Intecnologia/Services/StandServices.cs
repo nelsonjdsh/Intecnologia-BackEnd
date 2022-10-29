@@ -7,12 +7,13 @@ using System.Data;
 
 namespace BackEnd_Intecnologia.Services
 {
-    public interface IAssignStandServices
+    public interface IStandServices
     {
         Response AssignStand(AssignStandEntity AssignStandEntity);
+        Response<VwuserStand> StandByUser(int IdUser);
     }
 
-    public class StandServices : IAssignStandServices
+    public class StandServices : IStandServices
     {
         private readonly IntecContext context;
 
@@ -33,6 +34,22 @@ namespace BackEnd_Intecnologia.Services
             catch (Exception ex)
             {
                 result.Errors.Add(String.Format("Estimado usuario, en estos momentos estamos presentando inconvenientes en el servicio, favor comunicarse con un administrador."));
+            }
+            return result;
+        }
+
+        public Response<VwuserStand> StandByUser(int IdUser)
+        {
+            var result = new Response<VwuserStand>();
+
+            try
+            {
+                var Data = context.VwuserStands.FromSqlRaw("[dbo].[PCRStandByUser] {0}", IdUser).ToList();
+                result.DataList = Data;
+            }
+            catch (Exception ex)
+            {
+                result.Errors.Add(ex.Message);
             }
             return result;
         }

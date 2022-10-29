@@ -11,18 +11,26 @@ namespace BackEnd_Intecnologia.Controllers
     [ApiController]
     public class StandController : ControllerBase
     {
-        private readonly IAssignStandServices _IAssignStandServices;
+        private readonly IStandServices _IStandServices;
 
-        public StandController(IAssignStandServices service)
+        public StandController(IStandServices service)
         {
-            _IAssignStandServices = service;
+            _IStandServices = service;
         }
 
         [HttpPost]
         [Route("AssignStand")]
         public ActionResult Post(AssignStandEntity AssignStandEntity)
         {
-            var result = _IAssignStandServices.AssignStand(AssignStandEntity);
+            var result = _IStandServices.AssignStand(AssignStandEntity);
+            return StatusCode(StatusCodes.Status200OK, new { result });
+        }
+
+        [HttpGet]
+        [Route("StandByUser")]
+        public ActionResult Get(int IdUser)
+        {
+            var result = _IStandServices.StandByUser(IdUser);
             return StatusCode(StatusCodes.Status200OK, new { result });
         }
     }
