@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tySMdPaWkX9rYbiU2pmUL/q40ew1LgYOwjR1eQoN0UHN4IWfW87/TpECNF8ffvzYqH6hdYhvioBfiCvaEPJvAQ==",
+  "dgSpecHash": "3F1wPk/nHMhI+7pxFGGGA0gHtliMNOpAvzO3QNWQcuX/pANz2LVb/k8jowh31Bg1pUaOzNraIupBPcLcOvgOBA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Adm-PC\\source\\repos\\BackEnd_Intecnologia\\Backend_Intecnologia\\BackEnd_Intecnologia.csproj",
+  "projectFilePath": "C:\\Users\\Adm-PC\\source\\repos\\BackEnd_Intecnologia\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Adm-PC\\.nuget\\packages\\dotnetify.core\\5.3.0\\dotnetify.core.5.3.0.nupkg.sha512",
     "C:\\Users\\Adm-PC\\.nuget\\packages\\dotnetify.signalr\\5.3.1\\dotnetify.signalr.5.3.1.nupkg.sha512",
