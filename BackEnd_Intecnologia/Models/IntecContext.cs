@@ -144,6 +144,8 @@ namespace BackEnd_Intecnologia.Models
             modelBuilder.Entity<Vwactivity>(entity =>
             {
                 entity.ToView("VWActivity");
+
+                entity.Property(e => e.PkidActivity).ValueGeneratedOnAdd();
             });
 
             modelBuilder.Entity<Vwuser>(entity =>
