@@ -11,7 +11,9 @@ namespace BackEnd_Intecnologia.Services
     {
         Response AssignStand(AssignStandEntity AssignStandEntity);
         Response<VwuserStand> StandByUser(int IdUser);
-    }
+		Response<Vwstand> GetStands();
+		Response<Vwstand> GetStandsById(int Id);
+	}
 
     public class StandServices : IStandServices
     {
@@ -53,6 +55,37 @@ namespace BackEnd_Intecnologia.Services
             }
             return result;
         }
+		public Response<Vwstand> GetStands()
+		{
+			var result = new Response<Vwstand>();
 
-    }
+			try
+			{
+				var Data = context.Vwstands.FromSqlRaw("[dbo].[PRCGetStand] {0},{1}",0,0).ToList();
+				result.DataList = Data;
+			}
+			catch (Exception ex)
+			{
+				result.Errors.Add(ex.Message);
+			}
+			return result;
+		}
+
+		public Response<Vwstand> GetStandsById(int Id)
+		{
+			var result = new Response<Vwstand>();
+
+			try
+			{
+				var Data = context.Vwstands.FromSqlRaw("[dbo].[PRCGetStand] {0},{1}", Id, 1).ToList();
+				result.DataList = Data;
+			}
+			catch (Exception ex)
+			{
+				result.Errors.Add(ex.Message);
+			}
+			return result;
+		}
+
+	}
 }

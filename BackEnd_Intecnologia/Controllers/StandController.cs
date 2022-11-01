@@ -33,5 +33,20 @@ namespace BackEnd_Intecnologia.Controllers
             var result = _IStandServices.StandByUser(IdUser);
             return StatusCode(StatusCodes.Status200OK, new { result });
         }
-    }
+
+		[HttpGet]
+		[Route("GetStands")]
+		public ActionResult GetStands()
+		{
+			var result = _IStandServices.GetStands();
+			return StatusCode(StatusCodes.Status200OK, new { result });
+		}
+		[HttpGet]
+		[Route("GetStandsById")]
+		public ActionResult GetStandsById(int Id)
+		{
+			var result = _IStandServices.GetStandsById(Id);
+			return StatusCode(StatusCodes.Status200OK, new { result });
+		}
+	}
 }
