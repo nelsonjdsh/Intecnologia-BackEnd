@@ -164,6 +164,8 @@ namespace BackEnd_Intecnologia.Models
             modelBuilder.Entity<VwuserStand>(entity =>
             {
                 entity.ToView("VWUserStand");
+
+                entity.Property(e => e.PkidStand).ValueGeneratedOnAdd();
             });
 
             OnModelCreatingPartial(modelBuilder);

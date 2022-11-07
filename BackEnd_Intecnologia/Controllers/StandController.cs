@@ -23,7 +23,15 @@ namespace BackEnd_Intecnologia.Controllers
         public ActionResult Post(AssignStandEntity AssignStandEntity)
         {
             var result = _IStandServices.AssignStand(AssignStandEntity);
-            return StatusCode(StatusCodes.Status200OK, new { result });
+			if (result.Result == 1)
+			{
+				return StatusCode(StatusCodes.Status200OK, new { result });
+			}
+			else
+			{
+				return StatusCode(StatusCodes.Status400BadRequest, new { result });
+			}
+           
         }
 
         [HttpGet]
@@ -31,7 +39,15 @@ namespace BackEnd_Intecnologia.Controllers
         public ActionResult Get(int IdUser)
         {
             var result = _IStandServices.StandByUser(IdUser);
-            return StatusCode(StatusCodes.Status200OK, new { result });
+            if (result.StringCode == "No hay registro con este Id")
+            {
+				return StatusCode(StatusCodes.Status204NoContent, new { result });
+			}
+            else
+            {
+				return StatusCode(StatusCodes.Status200OK, new { result });
+			}
+      
         }
 
 		[HttpGet]
@@ -39,14 +55,28 @@ namespace BackEnd_Intecnologia.Controllers
 		public ActionResult GetStands()
 		{
 			var result = _IStandServices.GetStands();
-			return StatusCode(StatusCodes.Status200OK, new { result });
+			if (result.StringCode == "No hay registros")
+			{
+				return StatusCode(StatusCodes.Status204NoContent, new { result });
+			}
+			else
+			{
+				return StatusCode(StatusCodes.Status200OK, new { result });
+			}
 		}
 		[HttpGet]
 		[Route("GetStandsById")]
 		public ActionResult GetStandsById(int Id)
 		{
 			var result = _IStandServices.GetStandsById(Id);
-			return StatusCode(StatusCodes.Status200OK, new { result });
+			if (result.StringCode == "No hay registro con este Id")
+			{
+				return StatusCode(StatusCodes.Status204NoContent, new { result });
+			}
+			else
+			{
+				return StatusCode(StatusCodes.Status200OK, new { result });
+			}
 		}
 	}
 }

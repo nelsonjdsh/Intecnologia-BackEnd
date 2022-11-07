@@ -46,9 +46,19 @@ namespace BackEnd_Intecnologia.Services
 
             try
             {
-                var Data = context.VwuserStands.FromSqlRaw("[dbo].[PCRStandByUser] {0}", IdUser).ToList();
-                result.DataList = Data;
-            }
+                var Data = context.VwuserStands.FromSqlRaw("[dbo].[GetStandsByUser] {0}", IdUser).ToList();
+				if (Data.Count == 0)
+				{
+					result.DataList = Data;
+					result.StringCode = "No hay registro con este Id";
+					result.Result = 0;
+				}
+				else
+				{
+					result.DataList = Data;
+					result.Result = 1;
+				}
+			}
             catch (Exception ex)
             {
                 result.Errors.Add(ex.Message);
@@ -62,7 +72,17 @@ namespace BackEnd_Intecnologia.Services
 			try
 			{
 				var Data = context.Vwstands.FromSqlRaw("[dbo].[PRCGetStand] {0},{1}",0,0).ToList();
-				result.DataList = Data;
+				if (Data.Count == 0)
+				{
+					result.DataList = Data;
+					result.StringCode = "No hay registros";
+					result.Result = 0;
+				}
+				else
+				{
+					result.DataList = Data;
+					result.Result = 1;
+				}
 			}
 			catch (Exception ex)
 			{
@@ -75,10 +95,21 @@ namespace BackEnd_Intecnologia.Services
 		{
 			var result = new Response<Vwstand>();
 
-			try
-			{
-				var Data = context.Vwstands.FromSqlRaw("[dbo].[PRCGetStand] {0},{1}", Id, 1).ToList();
-				result.DataList = Data;
+            try
+            {
+                var Data = context.Vwstands.FromSqlRaw("[dbo].[PRCGetStand] {0},{1}", Id, 1).ToList();
+                if (Data.Count == 0)
+                {
+					result.DataList = Data;
+                    result.StringCode = "No hay registro con este Id";
+					result.Result = 0;
+				}
+                else
+                {
+					result.DataList = Data;
+					result.Result = 1;
+				}
+		
 			}
 			catch (Exception ex)
 			{

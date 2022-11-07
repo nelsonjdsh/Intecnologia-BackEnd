@@ -9,11 +9,13 @@ namespace BackEnd_Intecnologia.Models
     [Keyless]
     public partial class VwuserStand
     {
-        [Column("FKIdUser")]
-        public int FkidUser { get; set; }
-        [Column("FKIdStand")]
-        public int FkidStand { get; set; }
-        [Column(TypeName = "datetime")]
-        public DateTime? CreationDateUserStand { get; set; }
+        [Column("PKIdStand")]
+        public int PkidStand { get; set; }
+        [StringLength(500)]
+        public string? DescriptionStand { get; set; }
+        public int? IdStandType { get; set; }
+        [StringLength(5)]
+        [Unicode(false)]
+        public string Visited { get; set; } = null!;
     }
 }
