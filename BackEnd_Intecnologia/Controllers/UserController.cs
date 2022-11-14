@@ -34,7 +34,16 @@ namespace BackEnd_Intecnologia.Controllers
 		public ActionResult SignUp(UserEntity UserEntity)
 		{
 			var result = _IUserServices.SignUP(UserEntity);
-			return StatusCode(StatusCodes.Status200OK, new { result }); ;
+			if (result.StringCode == "Este correo ya existe")
+			{
+				return StatusCode(StatusCodes.Status400BadRequest, new { result }); ;
+
+			}
+			else
+			{
+				return StatusCode(StatusCodes.Status200OK, new { result }); ;
+			}
+	
 		}
 
 	}

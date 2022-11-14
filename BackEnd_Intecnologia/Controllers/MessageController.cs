@@ -25,5 +25,19 @@ namespace BackEnd_Intecnologia.Controllers
             var result = _IMessageServices.SendMessage(SendMessageEntity);
             return StatusCode(StatusCodes.Status200OK, new { result });
         }
-    }
+		[HttpGet]
+		[Route("GetMessage")]
+		public ActionResult GetMessage()
+		{
+			var result = _IMessageServices.GetMessages();
+			if (result.StringCode == "No hay registros")
+			{
+				return StatusCode(StatusCodes.Status204NoContent, new { result });
+			}
+			else
+			{
+				return StatusCode(StatusCodes.Status200OK, new { result });
+			}
+		}
+	}
 }

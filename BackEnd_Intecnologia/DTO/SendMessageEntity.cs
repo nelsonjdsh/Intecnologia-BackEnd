@@ -4,6 +4,6 @@
     {
         public string? DescripcionMessage { get; set; }
         public int? IdSender { get; set; }
-        public int? IdReciever { get; set; }
+
     }
 }

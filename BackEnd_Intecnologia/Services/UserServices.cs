@@ -86,7 +86,16 @@ namespace BackEnd_Intecnologia.Services
 					var Identity = new SqlParameter("@Result", SqlDbType.Int) { Direction = ParameterDirection.Output };
 					Context.Database.ExecuteSqlInterpolated($"[dbo].[PCRSignUp] {UserEntity.EmailUser.ToLower()}, {UserEntity.FullNameUser},{UserEntity.IduserType},{UserEntity.PasswordUser},{Identity} out");
 					Result2.Identity = (int)Identity.Value;
-					Result2.StringCode = "Correo valido";
+					if ((int)Identity.Value == 0)
+					{
+						Result2.StringCode = "Este correo ya existe";
+					}
+					else
+					{
+						Result2.StringCode = "Correo valido";
+
+					}
+			
 				}
 				else
 				{

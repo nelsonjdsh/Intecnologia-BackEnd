@@ -259,3 +259,8 @@ C:\Users\Vladimir González\Documents\GitHub\Intecnologia-BackEnd\BackEnd_Intecn
 C:\Users\Vladimir González\Documents\GitHub\Intecnologia-BackEnd\BackEnd_Intecnologia\obj\Debug\net6.0\BackEnd_Intecnologia.pdb
 C:\Users\Vladimir González\Documents\GitHub\Intecnologia-BackEnd\BackEnd_Intecnologia\obj\Debug\net6.0\BackEnd_Intecnologia.genruntimeconfig.cache
 C:\Users\Vladimir González\Documents\GitHub\Intecnologia-BackEnd\BackEnd_Intecnologia\obj\Debug\net6.0\ref\BackEnd_Intecnologia.dll
+C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\Backend_Intecnologia\obj\Debug\net6.0\staticwebassets\msbuild.BackEnd_Intecnologia.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\Backend_Intecnologia\obj\Debug\net6.0\staticwebassets\msbuild.build.BackEnd_Intecnologia.props
+C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\Backend_Intecnologia\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BackEnd_Intecnologia.props
+C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\Backend_Intecnologia\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BackEnd_Intecnologia.props
+C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\Backend_Intecnologia\obj\Debug\net6.0\staticwebassets.pack.json
