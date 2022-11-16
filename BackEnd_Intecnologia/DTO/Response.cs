@@ -7,6 +7,8 @@
 		public long Identity { get; set; }
 		public string StringCode { get; set; }
 		public int Result { get; set; }
+
+		public int Progress { get; set; }
 		public Guid GuidReturn { get; set; }
 		public List<string> Errors { get; set; } = new List<string>(0);
 	}

@@ -23,13 +23,14 @@ namespace BackEnd_Intecnologia.Controllers
         public ActionResult Post(AssignStandEntity AssignStandEntity)
         {
             var result = _IStandServices.AssignStand(AssignStandEntity);
-			if (result.Result == 1)
+			if (result.Result == 0)
 			{
-				return StatusCode(StatusCodes.Status200OK, new { result });
+				return StatusCode(StatusCodes.Status400BadRequest, new { result });
+		
 			}
 			else
 			{
-				return StatusCode(StatusCodes.Status400BadRequest, new { result });
+				return StatusCode(StatusCodes.Status200OK, new { result });
 			}
            
         }

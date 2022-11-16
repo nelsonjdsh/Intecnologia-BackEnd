@@ -47,6 +47,9 @@ namespace BackEnd_Intecnologia.Services
             try
             {
                 var Data = context.VwuserStands.FromSqlRaw("[dbo].[GetStandsByUser] {0}", IdUser).ToList();
+				var Progress = new SqlParameter("@Progress", SqlDbType.Int) { Direction = ParameterDirection.Output };
+				context.Database.ExecuteSqlInterpolated($"[dbo].[PRCGetProgress] {IdUser}, {Progress} out");
+				result.Progress = (int)Progress.Value;
 				if (Data.Count == 0)
 				{
 					result.DataList = Data;
