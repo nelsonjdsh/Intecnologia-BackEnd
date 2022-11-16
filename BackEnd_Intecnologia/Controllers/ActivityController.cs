@@ -23,7 +23,30 @@ namespace BackEnd_Intecnologia.Controllers
         public ActionResult Get()
         {
             var result = _activityServices.GetActivity();
-            return StatusCode(StatusCodes.Status200OK, new { result }); ;
+            if (result.DataList.Count() == 0)
+			{
+				return StatusCode(StatusCodes.Status404NotFound, new { result }); ;
+			}
+            else
+            {
+				return StatusCode(StatusCodes.Status200OK, new { result }); ;
+			}
+           
+
         }
-    }
+		[HttpGet]
+		[Route("ActivityByPlace")]
+		public ActionResult GetByPlace(int IdLugar)
+		{
+			var result = _activityServices.GetActivityByPlace(IdLugar);
+			if (result.DataList.Count() == 0)
+			{
+				return StatusCode(StatusCodes.Status404NotFound, new { result }); ;
+			}
+			else
+			{
+				return StatusCode(StatusCodes.Status200OK, new { result }); ;
+			}
+		}
+	}
 }

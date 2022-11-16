@@ -14,5 +14,7 @@ namespace BackEnd_Intecnologia.Models
         public int? IdSender { get; set; }
         [Column(TypeName = "text")]
         public string? DescripcionMessage { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime? CreationDateMessage { get; set; }
     }
 }

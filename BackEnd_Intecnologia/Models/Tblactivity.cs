@@ -12,18 +12,17 @@ namespace BackEnd_Intecnologia.Models
         [Key]
         [Column("PKIdActivity")]
         public int PkidActivity { get; set; }
-        [StringLength(1000)]
-        public string DescriptionActivity { get; set; } = null!;
+        public string? DescriptionActivity { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime CreationDateActivity { get; set; }
+        public DateTime? CreationDateActivity { get; set; }
         [StringLength(100)]
-        public string ScheduleActivity { get; set; } = null!;
-        [StringLength(100)]
-        public string? PlaceActivity { get; set; }
+        public string? ScheduleActivity { get; set; }
+        public int? PlaceActivity { get; set; }
         [StringLength(50)]
         public string? OrganizerActivity { get; set; }
         [StringLength(100)]
         public string? StartTimeActivity { get; set; }
-        public TimeSpan? FinishTimeActivity { get; set; }
+        [StringLength(100)]
+        public string? FinishTimeActivity { get; set; }
     }
 }

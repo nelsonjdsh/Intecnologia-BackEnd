@@ -16,7 +16,7 @@ namespace BackEnd_Intecnologia.Models
         public int? IdReciever { get; set; }
         [Column(TypeName = "text")]
         public string? DescripcionMessage { get; set; }
-        [Column(TypeName = "datetime")]
+        [Column(TypeName = "date")]
         public DateTime? CreationDateMessage { get; set; }
 
         [ForeignKey("IdReciever")]

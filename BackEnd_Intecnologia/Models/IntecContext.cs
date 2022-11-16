@@ -16,8 +16,10 @@ namespace BackEnd_Intecnologia.Models
         {
         }
 
+        public virtual DbSet<Agendum> Agenda { get; set; } = null!;
         public virtual DbSet<Tblactivity> Tblactivities { get; set; } = null!;
         public virtual DbSet<Tblmessage> Tblmessages { get; set; } = null!;
+        public virtual DbSet<TblplaceActivity> TblplaceActivities { get; set; } = null!;
         public virtual DbSet<Tblrole> Tblroles { get; set; } = null!;
         public virtual DbSet<Tblstand> Tblstands { get; set; } = null!;
         public virtual DbSet<TblstandType> TblstandTypes { get; set; } = null!;
@@ -64,6 +66,11 @@ namespace BackEnd_Intecnologia.Models
                     .WithMany(p => p.TblmessageIdSenderNavigations)
                     .HasForeignKey(d => d.IdSender)
                     .HasConstraintName("FK_Message.Id_Sender");
+            });
+
+            modelBuilder.Entity<TblplaceActivity>(entity =>
+            {
+                entity.Property(e => e.CreationDatePlaceActivity).HasDefaultValueSql("(getdate())");
             });
 
             modelBuilder.Entity<Tblrole>(entity =>
