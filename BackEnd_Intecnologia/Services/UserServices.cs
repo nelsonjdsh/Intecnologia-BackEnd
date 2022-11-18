@@ -4,6 +4,8 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Text;
+using XSystem.Security.Cryptography;
 
 namespace BackEnd_Intecnologia.Services
 {
@@ -23,6 +25,18 @@ namespace BackEnd_Intecnologia.Services
 		{
 			Context = _Context;
 		}
+
+		public static string sha256(string input)
+		{
+			var crypt = new SHA256Managed();
+			string Resulthash = String.Empty;
+			byte[] crypto = crypt.ComputeHash(Encoding.ASCII.GetBytes(input));
+			foreach (byte item in crypto)
+			{
+				Resulthash += item.ToString("x2");
+			}
+			return Resulthash;
+		}
 		public Response<Vwuser> SignIn(Login login)
 		{
 
@@ -31,7 +45,8 @@ namespace BackEnd_Intecnologia.Services
 			{
 
 				var Identity = new SqlParameter("@Message", SqlDbType.Int) { Direction = ParameterDirection.Output };
-				Context.Database.ExecuteSqlInterpolated($"[dbo].[PCRSignIn] {login.Email.ToLower()}, {login.Password},{Identity} out");
+				string pass = sha256(login.Password);
+				Context.Database.ExecuteSqlInterpolated($"[dbo].[PCRSignIn] {login.Email.ToLower()}, {pass},{Identity} out");
 				int IdUser = (int)Identity.Value;
 				if (IdUser != 0)
 				{
@@ -84,7 +99,8 @@ namespace BackEnd_Intecnologia.Services
 				if (EmailCorrecto)
 				{
 					var Identity = new SqlParameter("@Result", SqlDbType.Int) { Direction = ParameterDirection.Output };
-					Context.Database.ExecuteSqlInterpolated($"[dbo].[PCRSignUp] {UserEntity.EmailUser.ToLower()}, {UserEntity.FullNameUser},{UserEntity.IduserType},{UserEntity.PasswordUser},{Identity} out");
+					string pass = sha256(UserEntity.PasswordUser);
+					Context.Database.ExecuteSqlInterpolated($"[dbo].[PCRSignUp] {UserEntity.EmailUser.ToLower()}, {UserEntity.FullNameUser},{UserEntity.IduserType},{pass},{Identity} out");
 					Result2.Identity = (int)Identity.Value;
 					if ((int)Identity.Value == 0)
 					{
