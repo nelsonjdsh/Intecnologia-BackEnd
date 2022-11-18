@@ -3,7 +3,4 @@
   <parameter name="IIS Web Application Name" description="" value="evasquez03-001-site1" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Adm-PC\\source\\repos\\BackEnd_Intecnologia\\BackEnd_Intecnologia\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
   </parameter>
-  <parameter name="BackEnd_Intecnologia.Models.IntecContext" description="" value="data source=sql8003.site4now.net;initial catalog=db_a8eb8c_intecnologia;User Id=db_a8eb8c_intecnologia_admin;Password=DevBackEnd123;" tags="dbfullsql">
-    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\Adm-PC\\source\\repos\\BackEnd_Intecnologia\\BackEnd_Intecnologia\\obj\\Release\\net6\.0\\PubTmp\\EFSQLScripts\\BackEnd_Intecnologia\.Models\.IntecContext\.sql$" />
-  </parameter>
 </parameters>

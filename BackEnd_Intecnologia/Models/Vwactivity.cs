@@ -23,5 +23,7 @@ namespace BackEnd_Intecnologia.Models
         public string? StartTimeActivity { get; set; }
         [StringLength(100)]
         public string? FinishTimeActivity { get; set; }
+        [StringLength(250)]
+        public string? DescriptionPlaceActivity { get; set; }
     }
 }

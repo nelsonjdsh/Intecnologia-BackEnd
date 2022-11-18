@@ -9,7 +9,7 @@ namespace BackEnd_Intecnologia.Services
 {
     public interface IStandServices
     {
-        Response AssignStand(AssignStandEntity AssignStandEntity);
+		Response<VwuserStand> AssignStand(AssignStandEntity AssignStandEntity);
         Response<VwuserStand> StandByUser(int IdUser);
 		Response<Vwstand> GetStands();
 		Response<Vwstand> GetStandsById(int Id);
@@ -24,19 +24,26 @@ namespace BackEnd_Intecnologia.Services
             context = _context;
         }
 
-        public Response AssignStand(AssignStandEntity AssignStandEntity)
+        public Response<VwuserStand> AssignStand(AssignStandEntity AssignStandEntity)
         {
-            var result = new Response();
-            try
-            {
-                var Identity = new SqlParameter("@Result", SqlDbType.Int) { Direction = ParameterDirection.Output };
-                context.Database.ExecuteSqlInterpolated($"[dbo].[PCRAssignStand] {AssignStandEntity.FkidUser}, {AssignStandEntity.FkidStand}, {Identity} out");
-                result.Result = (int)Identity.Value;
-            }
-            catch (Exception ex)
-            {
-                result.Errors.Add(String.Format("Estimado usuario, en estos momentos estamos presentando inconvenientes en el servicio, favor comunicarse con un administrador."));
-            }
+            var result = new Response<VwuserStand>();
+			try
+			{
+				var Identity = new SqlParameter("@Result", SqlDbType.Int) { Direction = ParameterDirection.Output };
+				context.Database.ExecuteSqlInterpolated($"[dbo].[PCRAssignStand] {AssignStandEntity.FkidUser}, {AssignStandEntity.FkidStand}, {Identity} out");
+				var Data = context.VwuserStands.FromSqlRaw("[dbo].[GetStandsByUser] {0}", AssignStandEntity.FkidUser).ToList();
+				var Progress = new SqlParameter("@Progress", SqlDbType.Int) { Direction = ParameterDirection.Output };
+				context.Database.ExecuteSqlInterpolated($"[dbo].[PRCGetProgress] {AssignStandEntity.FkidUser}, {Progress} out");
+				result.Result = (int)Identity.Value;
+
+				result.Progress = (int)Progress.Value;
+				result.DataList = Data;
+			}
+
+			catch (Exception ex)
+			{
+				result.Errors.Add(String.Format("Estimado usuario, en estos momentos estamos presentando inconvenientes en el servicio, favor comunicarse con un administrador."));
+			}
             return result;
         }
 
