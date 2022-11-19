@@ -21,6 +21,8 @@ namespace BackEnd_Intecnologia.Services
 
         public StandServices(IntecContext _context)
         {
+
+
             context = _context;
         }
 
