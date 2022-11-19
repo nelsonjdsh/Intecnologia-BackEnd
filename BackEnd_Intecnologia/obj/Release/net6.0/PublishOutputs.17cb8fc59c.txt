@@ -4,6 +4,7 @@ C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Relea
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\BackEnd_Intecnologia.dll
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\BackEnd_Intecnologia.runtimeconfig.json
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\BackEnd_Intecnologia.pdb
+C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\Microsoft.Practices.ServiceLocation.dll
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\DotNetifyLib.Core.dll
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\DotNetifyLib.SignalR.dll
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\MessagePack.dll
@@ -54,6 +55,7 @@ C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Relea
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\System.Security.Permissions.dll
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\System.Windows.Extensions.dll
+C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\XAct.Core.PCL.dll
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll

@@ -266,3 +266,5 @@ C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\Backend_Intecnologia\obj\Debug
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\Backend_Intecnologia\obj\Debug\net6.0\staticwebassets.pack.json
 C:\Users\Deivy\Source\Repos\Intecnologia-BackEnd\BackEnd_Intecnologia\bin\Debug\net6.0\Microsoft.Practices.ServiceLocation.dll
 C:\Users\Deivy\Source\Repos\Intecnologia-BackEnd\BackEnd_Intecnologia\bin\Debug\net6.0\XAct.Core.PCL.dll
+C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\Backend_Intecnologia\bin\Debug\net6.0\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\Backend_Intecnologia\bin\Debug\net6.0\XAct.Core.PCL.dll

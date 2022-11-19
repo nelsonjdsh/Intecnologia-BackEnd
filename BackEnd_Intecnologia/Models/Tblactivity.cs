@@ -24,5 +24,6 @@ namespace BackEnd_Intecnologia.Models
         public string? StartTimeActivity { get; set; }
         [StringLength(100)]
         public string? FinishTimeActivity { get; set; }
+        public bool? Puntua { get; set; }
     }
 }

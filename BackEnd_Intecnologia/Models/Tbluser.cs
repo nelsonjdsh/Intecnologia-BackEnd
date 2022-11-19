@@ -26,7 +26,7 @@ namespace BackEnd_Intecnologia.Models
         public int IdRole { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime CreationDateUser { get; set; }
-        [StringLength(64)]
+        [StringLength(200)]
         public string PasswordUser { get; set; } = null!;
         [Column("IDUserType")]
         public int IduserType { get; set; }

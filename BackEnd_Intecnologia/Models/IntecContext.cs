@@ -16,20 +16,20 @@ namespace BackEnd_Intecnologia.Models
         {
         }
 
-        public virtual DbSet<Agendum> Agenda { get; set; } = null!;
         public virtual DbSet<Tblactivity> Tblactivities { get; set; } = null!;
         public virtual DbSet<Tblmessage> Tblmessages { get; set; } = null!;
-        public virtual DbSet<TblplaceActivity> TblplaceActivities { get; set; } = null!;
         public virtual DbSet<Tblrole> Tblroles { get; set; } = null!;
         public virtual DbSet<Tblstand> Tblstands { get; set; } = null!;
         public virtual DbSet<TblstandType> TblstandTypes { get; set; } = null!;
         public virtual DbSet<Tbluser> Tblusers { get; set; } = null!;
+        public virtual DbSet<TbluserActivity> TbluserActivities { get; set; } = null!;
         public virtual DbSet<TbluserStand> TbluserStands { get; set; } = null!;
         public virtual DbSet<TbluserType> TbluserTypes { get; set; } = null!;
         public virtual DbSet<Vwactivity> Vwactivities { get; set; } = null!;
         public virtual DbSet<Vwmessage> Vwmessages { get; set; } = null!;
         public virtual DbSet<Vwstand> Vwstands { get; set; } = null!;
         public virtual DbSet<Vwuser> Vwusers { get; set; } = null!;
+        public virtual DbSet<VwuserActivity> VwuserActivities { get; set; } = null!;
         public virtual DbSet<VwuserStand> VwuserStands { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -66,11 +66,6 @@ namespace BackEnd_Intecnologia.Models
                     .WithMany(p => p.TblmessageIdSenderNavigations)
                     .HasForeignKey(d => d.IdSender)
                     .HasConstraintName("FK_Message.Id_Sender");
-            });
-
-            modelBuilder.Entity<TblplaceActivity>(entity =>
-            {
-                entity.Property(e => e.CreationDatePlaceActivity).HasDefaultValueSql("(getdate())");
             });
 
             modelBuilder.Entity<Tblrole>(entity =>
@@ -120,6 +115,11 @@ namespace BackEnd_Intecnologia.Models
                     .HasForeignKey(d => d.IduserType)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_User.ID_UserType");
+            });
+
+            modelBuilder.Entity<TbluserActivity>(entity =>
+            {
+                entity.Property(e => e.CreationDate).HasDefaultValueSql("(getdate())");
             });
 
             modelBuilder.Entity<TbluserStand>(entity =>
@@ -172,6 +172,13 @@ namespace BackEnd_Intecnologia.Models
                 entity.ToView("VWUser");
 
                 entity.Property(e => e.IdUser).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<VwuserActivity>(entity =>
+            {
+                entity.ToView("VWUserActivity");
+
+                entity.Property(e => e.PkidActivity).ValueGeneratedOnAdd();
             });
 
             modelBuilder.Entity<VwuserStand>(entity =>

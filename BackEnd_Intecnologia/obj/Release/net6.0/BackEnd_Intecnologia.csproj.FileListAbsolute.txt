@@ -90,3 +90,5 @@ C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Relea
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\staticwebassets\msbuild.buildMultiTargeting.BackEnd_Intecnologia.props
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\staticwebassets\msbuild.buildTransitive.BackEnd_Intecnologia.props
 C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\staticwebassets.pack.json
+C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\bin\Release\net6.0\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\bin\Release\net6.0\XAct.Core.PCL.dll
