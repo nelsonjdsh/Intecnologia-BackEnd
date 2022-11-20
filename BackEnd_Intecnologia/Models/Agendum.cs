@@ -9,8 +9,8 @@ namespace BackEnd_Intecnologia.Models
     [Keyless]
     public partial class Agendum
     {
-        [Column(TypeName = "datetime")]
-        public DateTime? Día { get; set; }
+        [StringLength(255)]
+        public string? Día { get; set; }
         [StringLength(255)]
         public string? Hora { get; set; }
         public string? Actividad { get; set; }
@@ -19,6 +19,6 @@ namespace BackEnd_Intecnologia.Models
         [StringLength(255)]
         public string? Organiza { get; set; }
         [StringLength(255)]
-        public string? Notas { get; set; }
+        public string Puntuable { get; set; } = null!;
     }
 }

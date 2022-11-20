@@ -16,6 +16,7 @@ namespace BackEnd_Intecnologia.Models
         {
         }
 
+        public virtual DbSet<Agendum> Agenda { get; set; } = null!;
         public virtual DbSet<Tblactivity> Tblactivities { get; set; } = null!;
         public virtual DbSet<Tblmessage> Tblmessages { get; set; } = null!;
         public virtual DbSet<Tblrole> Tblroles { get; set; } = null!;
