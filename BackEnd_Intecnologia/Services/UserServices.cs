@@ -1,4 +1,5 @@
 ﻿using BackEnd_Intecnologia.DTO;
+using BackEnd_Intecnologia.Helpers;
 using BackEnd_Intecnologia.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -20,11 +21,12 @@ namespace BackEnd_Intecnologia.Services
 	{
 		#region Entity Referencing Context
 		private readonly IntecContext Context;
-		#endregion
-		public UserServices(IntecContext _Context)
+
+        #endregion
+        public UserServices(IntecContext _Context)
 		{
 			Context = _Context;
-		}
+        }
 
 		public static string sha256(string input)
 		{
@@ -43,7 +45,6 @@ namespace BackEnd_Intecnologia.Services
 			var Result2 = new Response<Vwuser>();
 			try
 			{
-
 				var Identity = new SqlParameter("@Message", SqlDbType.Int) { Direction = ParameterDirection.Output };
 				string pass = sha256(login.Password);
 				Context.Database.ExecuteSqlInterpolated($"[dbo].[PCRSignIn] {login.Email.ToLower()}, {pass},{Identity} out");
@@ -52,6 +53,7 @@ namespace BackEnd_Intecnologia.Services
 				{
 					var Data = Context.Vwusers.FromSqlRaw("[dbo].[PCRUserData] {0}", IdUser).ToList();
 					Result2.DataList = Data;
+					
 				}
 				else
 				{

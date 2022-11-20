@@ -1,8 +1,10 @@
 ﻿using BackEnd_Intecnologia.DTO;
+using BackEnd_Intecnologia.Helpers;
 using BackEnd_Intecnologia.Services;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace BackEnd_Intecnologia.Controllers
 {
@@ -13,12 +15,14 @@ namespace BackEnd_Intecnologia.Controllers
 	{
 
 		private readonly IUserServices _IUserServices;
+        private readonly JWTService _JWTService;
 
-		#region Constructor
-		public UserController(IUserServices service)
+        #region Constructor
+        public UserController(IUserServices service, JWTService JWTService)
 		{
 			_IUserServices = service;
-		}
+            _JWTService = JWTService;
+        }
 		#endregion
 		// GET: api/<UserController>
 		[HttpPost]
@@ -26,8 +30,14 @@ namespace BackEnd_Intecnologia.Controllers
 		public ActionResult Post(Login login)
 		{
 			var result = _IUserServices.SignIn(login);
-			return StatusCode(StatusCodes.Status200OK, new { result }); ;
-		}
+            var jwt = _JWTService.Generate((int)result.Identity);
+			Response.Cookies.Append("jwt", jwt, new CookieOptions
+			{
+				HttpOnly = true
+			});
+            result.jwtToken = "success";
+            return StatusCode(StatusCodes.Status200OK, new { result });
+        }
 
 		[HttpPost]
 		[Route("Register")]

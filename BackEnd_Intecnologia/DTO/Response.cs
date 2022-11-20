@@ -11,6 +11,7 @@
 		public int Progress { get; set; }
 		public Guid GuidReturn { get; set; }
 		public List<string> Errors { get; set; } = new List<string>(0);
+		public string? jwtToken { get; set; }
 	}
 
 	public class Response<T> : Response where T : class
