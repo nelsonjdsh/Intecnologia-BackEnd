@@ -1,3 +1,4 @@
+using BackEnd_Intecnologia.Helpers;
 using BackEnd_Intecnologia.Models;
 using BackEnd_Intecnologia.Services;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,7 @@ builder.Services.AddDbContext<IntecContext>(options =>
 				options.UseSqlServer(builder.Configuration.GetConnectionString("BACKConnection")));
 builder.Services.AddMemoryCache();
 builder.Services.AddScoped<IUserServices, UserServices>();
+builder.Services.AddScoped<JWTService>();
 builder.Services.AddScoped<IStandServices, StandServices>();
 builder.Services.AddScoped<IMessageServices, MessageServices>();
 builder.Services.AddScoped<IActivityServices, ActivityServices>();
