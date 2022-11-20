@@ -1,6 +1,7 @@
 ﻿using BackEnd_Intecnologia.DTO;
 using BackEnd_Intecnologia.Helpers;
 using BackEnd_Intecnologia.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,14 +16,14 @@ namespace BackEnd_Intecnologia.Controllers
 	{
 
 		private readonly IUserServices _IUserServices;
-        private readonly JWTService _JWTService;
+		private readonly JWTService _JWTService;
 
-        #region Constructor
-        public UserController(IUserServices service, JWTService JWTService)
+		#region Constructor
+		public UserController(IUserServices service, JWTService JWTService)
 		{
 			_IUserServices = service;
-            _JWTService = JWTService;
-        }
+			_JWTService = JWTService;
+		}
 		#endregion
 		// GET: api/<UserController>
 		[HttpPost]
@@ -30,14 +31,14 @@ namespace BackEnd_Intecnologia.Controllers
 		public ActionResult Post(Login login)
 		{
 			var result = _IUserServices.SignIn(login);
-            var jwt = _JWTService.Generate((int)result.Identity);
+			var jwt = _JWTService.Generate((int)result.Identity);
 			Response.Cookies.Append("jwt", jwt, new CookieOptions
 			{
 				HttpOnly = true
 			});
-            result.jwtToken = "success";
-            return StatusCode(StatusCodes.Status200OK, new { result });
-        }
+			result.jwtToken = jwt;
+			return StatusCode(StatusCodes.Status200OK, new { result });
+		}
 
 		[HttpPost]
 		[Route("Register")]
@@ -53,8 +54,38 @@ namespace BackEnd_Intecnologia.Controllers
 			{
 				return StatusCode(StatusCodes.Status200OK, new { result }); ;
 			}
-	
 		}
+
+		[HttpGet]
+		[Route("AuthenticateUser")]
+		public IActionResult AuthenticateUser()
+        {
+            try
+            {
+				var jwt = Request.Cookies["jwt"];
+				var token = _JWTService.Verify(jwt);
+				int userId = int.Parse(token.Issuer);
+				var result = _IUserServices.GetUser(userId);
+				return Ok(result);
+            }
+            catch (Exception)
+            {
+				return Unauthorized();
+            }
+        }
+
+		[HttpPost]
+        [Authorize]
+        [Route("Logout")]
+		public IActionResult Logout()
+        {
+			Response.Cookies.Delete("jwt");
+			return Ok(new
+			{
+				message = "Logged Out"
+			});
+        }
+
 
 	}
 }

@@ -16,6 +16,7 @@ namespace BackEnd_Intecnologia.Services
 		Response<Vwuser> SignIn(Login login);
 		Response SignUP(UserEntity UserEntity);
 		//Response Delete(int Id);
+		Response<Vwuser> GetUser(int idUser);
 	}
 	public class UserServices : IUserServices
 	{
@@ -53,6 +54,7 @@ namespace BackEnd_Intecnologia.Services
 				{
 					var Data = Context.Vwusers.FromSqlRaw("[dbo].[PCRUserData] {0}", IdUser).ToList();
 					Result2.DataList = Data;
+					Result2.Identity = IdUser;
 					
 				}
 				else
@@ -131,5 +133,20 @@ namespace BackEnd_Intecnologia.Services
 			}
 			return Result2;
 		}
-	}
+
+        public Response<Vwuser> GetUser(int idUser)
+        {
+            var Result = new Response<Vwuser>();
+            try
+            {
+				var Data = Context.Vwusers.FromSqlRaw("[dbo].[PCRUserData] {0}", idUser).ToList();
+				Result.DataList = Data;
+			}
+            catch (Exception _)
+            {
+				Result.Errors.Add(string.Format("ID no existe"));
+            }
+			return Result;
+        }
+    }
 }
