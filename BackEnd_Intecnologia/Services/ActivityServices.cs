@@ -13,7 +13,7 @@ namespace BackEnd_Intecnologia.Services
 		Response<VwuserActivity> ActivityByUser(int IdUser);
 		Response<Vwactivity> GetActivityByPlace(int IdLugar);
 		Response<VwuserActivity> AssignActivity(AssignActivityEntity AssignActivityEntity);
-		Response<VwactivityPlaceUser> GetActivityByPlaceUser(UserActivityPlaceEntity userActivityPlaceEntity);
+		Response<VwactivityPlaceUser> GetActivityByPlaceUser(int IdUser, int IdPlace);
 	}
     public class ActivityServices : IActivityServices
     {
@@ -105,12 +105,12 @@ namespace BackEnd_Intecnologia.Services
 			return Response;
 		}
 
-		public Response<VwactivityPlaceUser> GetActivityByPlaceUser (UserActivityPlaceEntity userActivityPlaceEntity)
+		public Response<VwactivityPlaceUser> GetActivityByPlaceUser (int IdUser, int IdPlace)
         {
 			var Response = new Response<VwactivityPlaceUser>();
             try
             {
-				var Data = Context.VwactivityPlaceUsers.FromSqlRaw($"[dbo].[PRCGetActivityByPlaceUser] {userActivityPlaceEntity.IdUser}, {userActivityPlaceEntity.IdPlace}").ToList();
+				var Data = Context.VwactivityPlaceUsers.FromSqlRaw($"[dbo].[PRCGetActivityByPlaceUser] {IdUser}, {IdPlace}").ToList();
 				Response.DataList = Data;
             }
             catch (Exception ex)

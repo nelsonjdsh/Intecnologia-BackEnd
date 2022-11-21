@@ -82,11 +82,11 @@ namespace BackEnd_Intecnologia.Controllers
 			}
 		}
 
-		[HttpPost]
+		[HttpGet]
 		[Route("activitybyplaceuser")]
-		public ActionResult ActivityByPlaceUser(UserActivityPlaceEntity userActivityPlaceEntity)
+		public ActionResult ActivityByPlaceUser(int IdUser, int IdPlace)
 		{
-			var result = _activityServices.GetActivityByPlaceUser(userActivityPlaceEntity);
+			var result = _activityServices.GetActivityByPlaceUser(IdUser, IdPlace);
 			if (result.DataList == null)
             {
 				return StatusCode(StatusCodes.Status400BadRequest, new { result });
