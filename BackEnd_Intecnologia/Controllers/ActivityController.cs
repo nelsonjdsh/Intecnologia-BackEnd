@@ -9,6 +9,7 @@ namespace BackEnd_Intecnologia.Controllers
 {
 	[EnableCors("ReglasCors")]
 	[Route("api/activity")]
+	[Authorize]
 	[ApiController]
 	public class ActivityController : ControllerBase
 	{
