@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Deivy\\Source\\Repos\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj": {}
+    "C:\\Users\\Deivy\\source\\repos\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Deivy\\Source\\Repos\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj": {
+    "C:\\Users\\Deivy\\source\\repos\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Deivy\\Source\\Repos\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj",
+        "projectUniqueName": "C:\\Users\\Deivy\\source\\repos\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj",
         "projectName": "BackEnd_Intecnologia",
-        "projectPath": "C:\\Users\\Deivy\\Source\\Repos\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj",
+        "projectPath": "C:\\Users\\Deivy\\source\\repos\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj",
         "packagesPath": "C:\\Users\\Deivy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Deivy\\Source\\Repos\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\obj\\",
+        "outputPath": "C:\\Users\\Deivy\\source\\repos\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Deivy\\AppData\\Roaming\\NuGet\\NuGet.Config",

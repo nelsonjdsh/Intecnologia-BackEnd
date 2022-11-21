@@ -8,8 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BackEnd_Intecnologia.Controllers
 {
     [EnableCors("ReglasCors")]
-    [Route("api/[controller]")]
-	[Authorize]
+    [Route("api/activity")]
     [ApiController]
     public class ActivityController : ControllerBase
     {
@@ -21,7 +20,7 @@ namespace BackEnd_Intecnologia.Controllers
         }
 
 		[HttpGet]
-		[Route("ActivityByUser")]
+		[Route("activitybyuser")]
 		public ActionResult Get(int IdUser)
 		{
 			var result = _activityServices.ActivityByUser(IdUser);
@@ -36,7 +35,7 @@ namespace BackEnd_Intecnologia.Controllers
 
 		}
 		[HttpGet]
-        [Route("Activity")]
+        [Route("activity")]
         public ActionResult Get()
         {
             var result = _activityServices.GetActivity();
@@ -52,7 +51,7 @@ namespace BackEnd_Intecnologia.Controllers
 
         }
 		[HttpPost]
-		[Route("AssignActivity")]
+		[Route("assignactivity")]
 		public ActionResult Post(AssignActivityEntity AssignActivityEntity)
 		{
 			var result = _activityServices.AssignActivity(AssignActivityEntity);
@@ -68,7 +67,7 @@ namespace BackEnd_Intecnologia.Controllers
 
 		}
 		[HttpGet]
-		[Route("ActivityByPlace")]
+		[Route("activitybyplace")]
 		public ActionResult GetByPlace(int IdLugar)
 		{
 			var result = _activityServices.GetActivityByPlace(IdLugar);

@@ -8,8 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BackEnd_Intecnologia.Controllers
 {
     [EnableCors("ReglasCors")]
-    [Route("api/[controller]")]
-	[Authorize]
+    [Route("api/stand")]
 	[ApiController]
     public class StandController : ControllerBase
     {
@@ -21,7 +20,7 @@ namespace BackEnd_Intecnologia.Controllers
         }
 
         [HttpPost]
-        [Route("AssignStand")]
+        [Route("assignstand")]
         public ActionResult Post(AssignStandEntity AssignStandEntity)
         {
             var result = _IStandServices.AssignStand(AssignStandEntity);
@@ -38,7 +37,7 @@ namespace BackEnd_Intecnologia.Controllers
         }
 
         [HttpGet]
-        [Route("StandByUser")]
+        [Route("standbyuser")]
         public ActionResult Get(int IdUser)
         {
             var result = _IStandServices.StandByUser(IdUser);
@@ -54,7 +53,7 @@ namespace BackEnd_Intecnologia.Controllers
         }
 
 		[HttpGet]
-		[Route("GetStands")]
+		[Route("getstands")]
 		public ActionResult GetStands()
 		{
 			var result = _IStandServices.GetStands();
@@ -68,7 +67,7 @@ namespace BackEnd_Intecnologia.Controllers
 			}
 		}
 		[HttpGet]
-		[Route("GetStandsById")]
+		[Route("getstandsbyid")]
 		public ActionResult GetStandsById(int Id)
 		{
 			var result = _IStandServices.GetStandsById(Id);

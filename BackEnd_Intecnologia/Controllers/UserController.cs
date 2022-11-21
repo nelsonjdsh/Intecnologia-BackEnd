@@ -10,7 +10,7 @@ using System.Data;
 namespace BackEnd_Intecnologia.Controllers
 {
 	[EnableCors("ReglasCors")]
-	[Route("api/[controller]")]
+	[Route("api/user")]
 	[ApiController]
 	public class UserController : ControllerBase
 	{
@@ -27,7 +27,7 @@ namespace BackEnd_Intecnologia.Controllers
 		#endregion
 		// GET: api/<UserController>
 		[HttpPost]
-		[Route("Login")]
+		[Route("login")]
 		public ActionResult Post(Login login)
 		{
 			var result = _IUserServices.SignIn(login);
@@ -36,12 +36,22 @@ namespace BackEnd_Intecnologia.Controllers
 			{
 				HttpOnly = true
 			});
-			result.jwtToken = jwt;
-			return StatusCode(StatusCodes.Status200OK, new { result });
+
+			if (result.DataList == null)
+            {
+				result.jwtToken = "";
+				return StatusCode(StatusCodes.Status401Unauthorized, new { result });
+            }
+			else
+            {
+				result.jwtToken = jwt;
+				return StatusCode(StatusCodes.Status200OK, new { result });
+            }
+
 		}
 
 		[HttpPost]
-		[Route("Register")]
+		[Route("register")]
 		public ActionResult SignUp(UserEntity UserEntity)
 		{
 			var result = _IUserServices.SignUP(UserEntity);
@@ -57,7 +67,7 @@ namespace BackEnd_Intecnologia.Controllers
 		}
 
 		[HttpGet]
-		[Route("AuthenticateUser")]
+		[Route("authenticateuser")]
 		public IActionResult AuthenticateUser()
         {
             try
@@ -75,8 +85,7 @@ namespace BackEnd_Intecnologia.Controllers
         }
 
 		[HttpPost]
-        [Authorize]
-        [Route("Logout")]
+        [Route("logout")]
 		public IActionResult Logout()
         {
 			Response.Cookies.Delete("jwt");

@@ -8,8 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BackEnd_Intecnologia.Controllers
 {
     [EnableCors("ReglasCors")]
-    [Route("api/[controller]")]
-    [Authorize]
+    [Route("api/message")]
     [ApiController]
     public class MessageController : ControllerBase
     {
@@ -21,14 +20,14 @@ namespace BackEnd_Intecnologia.Controllers
         }
 
         [HttpPost]
-        [Route("SendMessage")]
+        [Route("sendmessage")]
         public ActionResult Post(SendMessageEntity SendMessageEntity)
         {
             var result = _IMessageServices.SendMessage(SendMessageEntity);
             return StatusCode(StatusCodes.Status200OK, new { result });
         }
 		[HttpGet]
-		[Route("GetMessage")]
+		[Route("getmessage")]
 		public ActionResult GetMessage()
 		{
 			var result = _IMessageServices.GetMessages();
