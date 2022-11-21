@@ -24,7 +24,15 @@ namespace BackEnd_Intecnologia.Controllers
         public ActionResult Post(SendMessageEntity SendMessageEntity)
         {
             var result = _IMessageServices.SendMessage(SendMessageEntity);
-            return StatusCode(StatusCodes.Status200OK, new { result });
+			if (result.Result == 0)
+			{
+				return StatusCode(StatusCodes.Status400BadRequest, new { result });
+			}
+			else
+			{
+				return StatusCode(StatusCodes.Status200OK, new { result });
+			}
+            
         }
 		[HttpGet]
 		[Route("getmessage")]
