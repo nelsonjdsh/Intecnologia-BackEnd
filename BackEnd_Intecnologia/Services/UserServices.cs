@@ -107,7 +107,7 @@ namespace BackEnd_Intecnologia.Services
 				{
 					var Identity = new SqlParameter("@Result", SqlDbType.Int) { Direction = ParameterDirection.Output };
 					string pass = sha256(UserEntity.PasswordUser);
-					Context.Database.ExecuteSqlInterpolated($"[dbo].[PCRSignUp] {UserEntity.EmailUser.ToLower()}, {UserEntity.FullNameUser},{UserEntity.IduserType},{pass},{Identity} out");
+					Context.Database.ExecuteSqlInterpolated($"[dbo].[PRCSignUp] {UserEntity.EmailUser.ToLower()}, {UserEntity.FullNameUser},{UserEntity.IduserType},{pass},{Identity} out");
 					Result2.Identity = (int)Identity.Value;
 					if ((int)Identity.Value == 0)
 					{
@@ -142,7 +142,7 @@ namespace BackEnd_Intecnologia.Services
             var Result = new Response<Vwuser>();
             try
             {
-				var Data = Context.Vwusers.FromSqlRaw("[dbo].[PCRUserData] {0}", idUser).ToList();
+				var Data = Context.Vwusers.FromSqlRaw("[dbo].[PRCUserData] {0}", idUser).ToList();
 				Result.DataList = Data;
 			}
             catch (Exception _)
