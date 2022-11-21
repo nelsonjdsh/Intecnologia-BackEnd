@@ -26,7 +26,7 @@ namespace BackEnd_Intecnologia.Services
             try
             {
                 var Identity = new SqlParameter("@Result", SqlDbType.Int) { Direction = ParameterDirection.Output };
-                context.Database.ExecuteSqlInterpolated($"[dbo].[PCRSendMessage] { SendMessageEntity.IdSender}, { SendMessageEntity.DescripcionMessage}, { Identity} out");
+                context.Database.ExecuteSqlInterpolated($"[dbo].[PRCSendMessage] { SendMessageEntity.IdSender}, { SendMessageEntity.DescripcionMessage}, { Identity} out");
                 result.Result = (int)Identity.Value;
 
             }

@@ -32,8 +32,8 @@ namespace BackEnd_Intecnologia.Services
 			try
 			{
 				var Identity = new SqlParameter("@Result", SqlDbType.Int) { Direction = ParameterDirection.Output };
-				context.Database.ExecuteSqlInterpolated($"[dbo].[PCRAssignStand] {AssignStandEntity.FkidUser}, {AssignStandEntity.FkidStand}, {Identity} out");
-				var Data = context.VwuserStands.FromSqlRaw("[dbo].[GetStandsByUser] {0}", AssignStandEntity.FkidUser).ToList();
+				context.Database.ExecuteSqlInterpolated($"[dbo].[PRCAssignStand] {AssignStandEntity.FkidUser}, {AssignStandEntity.FkidStand}, {Identity} out");
+				var Data = context.VwuserStands.FromSqlRaw("[dbo].[PRCGetStandsByUser] {0}", AssignStandEntity.FkidUser).ToList();
 				var Progress = new SqlParameter("@Progress", SqlDbType.Int) { Direction = ParameterDirection.Output };
 				context.Database.ExecuteSqlInterpolated($"[dbo].[PRCGetProgress] {AssignStandEntity.FkidUser}, {Progress} out");
 				result.Result = (int)Identity.Value;
@@ -55,7 +55,7 @@ namespace BackEnd_Intecnologia.Services
 
             try
             {
-                var Data = context.VwuserStands.FromSqlRaw("[dbo].[GetStandsByUser] {0}", IdUser).ToList();
+                var Data = context.VwuserStands.FromSqlRaw("[dbo].[PRCGetStandsByUser] {0}", IdUser).ToList();
 				var Progress = new SqlParameter("@Progress", SqlDbType.Int) { Direction = ParameterDirection.Output };
 				context.Database.ExecuteSqlInterpolated($"[dbo].[PRCGetProgress] {IdUser}, {Progress} out");
 				result.Progress = (int)Progress.Value;

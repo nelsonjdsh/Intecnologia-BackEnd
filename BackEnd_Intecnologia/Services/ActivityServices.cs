@@ -44,7 +44,7 @@ namespace BackEnd_Intecnologia.Services
 
 			try
 			{
-				var Data = Context.VwuserActivities.FromSqlRaw("[dbo].[GetActivityByUser] {0}", IdUser).ToList();
+				var Data = Context.VwuserActivities.FromSqlRaw("[dbo].[PRCGetActivityByUser] {0}", IdUser).ToList();
 				var Progress = new SqlParameter("@Progress", SqlDbType.Int) { Direction = ParameterDirection.Output };
 				Context.Database.ExecuteSqlInterpolated($"[dbo].[PRCGetProgressActivity] {IdUser}, {Progress} out");
 				result.Progress = (int)Progress.Value;
@@ -72,8 +72,8 @@ namespace BackEnd_Intecnologia.Services
 			try
 			{
 				var Identity = new SqlParameter("@Result", SqlDbType.Int) { Direction = ParameterDirection.Output };
-				Context.Database.ExecuteSqlInterpolated($"[dbo].[PCRAssignActivity] {AssignActivityEntity.FkidUser}, {AssignActivityEntity.FkidActivity}, {Identity} out");
-				var Data = Context.VwuserActivities.FromSqlRaw("[dbo].[GetActivityByUser] {0}", AssignActivityEntity.FkidUser).ToList();
+				Context.Database.ExecuteSqlInterpolated($"[dbo].[PRCAssignActivity] {AssignActivityEntity.FkidUser}, {AssignActivityEntity.FkidActivity}, {Identity} out");
+				var Data = Context.VwuserActivities.FromSqlRaw("[dbo].[PRCGetActivityByUser] {0}", AssignActivityEntity.FkidUser).ToList();
 				var Progress = new SqlParameter("@Progress", SqlDbType.Int) { Direction = ParameterDirection.Output };
 				Context.Database.ExecuteSqlInterpolated($"[dbo].[PRCGetProgressActivity] {AssignActivityEntity.FkidUser}, {Progress} out");
 				result.Result = (int)Identity.Value;
