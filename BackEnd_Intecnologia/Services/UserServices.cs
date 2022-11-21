@@ -53,8 +53,11 @@ namespace BackEnd_Intecnologia.Services
 				if (IdUser != 0)
 				{
 					var Data = Context.Vwusers.FromSqlRaw("[dbo].[PRCUserData] {0}", IdUser).ToList();
+					var Progress = new SqlParameter("@Progress", SqlDbType.Int) { Direction = ParameterDirection.Output };
+					Context.Database.ExecuteSqlInterpolated($"[dbo].[PRCGetProgressActivity] {IdUser}, {Progress} out");
 					Result2.DataList = Data;
 					Result2.Identity = IdUser;
+					Result2.Progress = (int)Progress.Value;
 					
 				}
 				else

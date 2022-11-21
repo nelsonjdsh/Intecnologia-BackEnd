@@ -51,6 +51,7 @@ namespace BackEnd_Intecnologia.Controllers
 
         }
 		[HttpPost]
+		[Authorize]
 		[Route("assignactivity")]
 		public ActionResult Post(AssignActivityEntity AssignActivityEntity)
 		{
