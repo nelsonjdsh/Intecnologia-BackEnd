@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="C:\Users\Deivy\source\repos\Intecnologia-BackEnd\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\" />
-  <dbfullsql path="C:\Users\Deivy\source\repos\Intecnologia-BackEnd\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\EFSQLScripts\BackEnd_Intecnologia.Models.IntecContext.sql" />
+  <IisApp path="C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\Out\" />
+  <dbfullsql path="C:\Users\Adm-PC\source\repos\BackEnd_Intecnologia\BackEnd_Intecnologia\obj\Release\net6.0\PubTmp\EFSQLScripts\BackEnd_Intecnologia.Models.IntecContext.sql" />
 </sitemanifest>

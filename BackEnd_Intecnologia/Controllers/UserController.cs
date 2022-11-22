@@ -40,8 +40,8 @@ namespace BackEnd_Intecnologia.Controllers
 			if (result.DataList == null)
             {
 				result.jwtToken = "";
-				return StatusCode(StatusCodes.Status401Unauthorized, new { result });
-            }
+				return StatusCode(StatusCodes.Status200OK, new { result });
+			}
 			else
             {
 				result.jwtToken = jwt;
