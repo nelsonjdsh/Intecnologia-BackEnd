@@ -16,8 +16,9 @@ namespace BackEnd_Intecnologia.Models
         public int? IdReciever { get; set; }
         [Column(TypeName = "text")]
         public string? DescripcionMessage { get; set; }
-        [Column(TypeName = "date")]
+        [Column(TypeName = "datetime")]
         public DateTime? CreationDateMessage { get; set; }
+        public TimeSpan? TimeMessage { get; set; }
 
         [ForeignKey("IdReciever")]
         [InverseProperty("TblmessageIdRecieverNavigations")]

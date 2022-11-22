@@ -16,5 +16,6 @@ namespace BackEnd_Intecnologia.Models
         public string? DescripcionMessage { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? CreationDateMessage { get; set; }
+        public TimeSpan? TimeMessage { get; set; }
     }
 }
