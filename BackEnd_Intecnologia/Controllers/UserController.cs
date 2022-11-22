@@ -57,7 +57,7 @@ namespace BackEnd_Intecnologia.Controllers
 			var result = _IUserServices.SignUP(UserEntity);
 			if (result.StringCode == "Este correo ya existe")
 			{
-				return StatusCode(StatusCodes.Status400BadRequest, new { result }); ;
+				return StatusCode(StatusCodes.Status200OK, new { result }); ;
 
 			}
 			else
