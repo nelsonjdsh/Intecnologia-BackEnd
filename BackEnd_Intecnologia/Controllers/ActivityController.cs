@@ -7,17 +7,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BackEnd_Intecnologia.Controllers
 {
-    [EnableCors("ReglasCors")]
-    [Route("api/activity")]
-    [ApiController]
-    public class ActivityController : ControllerBase
-    {
-        private readonly IActivityServices _activityServices;
+	[EnableCors("ReglasCors")]
+	[Route("api/activity")]
+	[Authorize]
+	[ApiController]
+	public class ActivityController : ControllerBase
+	{
+		private readonly IActivityServices _activityServices;
 
-        public ActivityController(IActivityServices activityServices)
-        {
-            _activityServices = activityServices;
-        }
+		public ActivityController(IActivityServices activityServices)
+		{
+			_activityServices = activityServices;
+		}
 
 		[HttpGet]
 		[Route("activitybyuser")]
@@ -35,21 +36,21 @@ namespace BackEnd_Intecnologia.Controllers
 
 		}
 		[HttpGet]
-        [Route("activity")]
-        public ActionResult Get()
-        {
-            var result = _activityServices.GetActivity();
-            if (result.DataList.Count() == 0)
+		[Route("activity")]
+		public ActionResult Get()
+		{
+			var result = _activityServices.GetActivity();
+			if (result.DataList.Count() == 0)
 			{
 				return StatusCode(StatusCodes.Status404NotFound, new { result }); ;
 			}
-            else
-            {
+			else
+			{
 				return StatusCode(StatusCodes.Status200OK, new { result }); ;
 			}
-           
 
-        }
+
+		}
 		[HttpPost]
 		[Authorize]
 		[Route("assignactivity")]
@@ -80,6 +81,22 @@ namespace BackEnd_Intecnologia.Controllers
 			{
 				return StatusCode(StatusCodes.Status200OK, new { result }); ;
 			}
+		}
+
+		[HttpGet]
+		[Route("activitybyplaceuser")]
+		public ActionResult ActivityByPlaceUser(int IdUser, int IdPlace)
+		{
+			var result = _activityServices.GetActivityByPlaceUser(IdUser, IdPlace);
+			if (result.DataList == null)
+            {
+				return StatusCode(StatusCodes.Status400BadRequest, new { result });
+            }
+			else
+            {
+				return StatusCode(StatusCodes.Status200OK, new { result });
+            }
+
 		}
 	}
 }

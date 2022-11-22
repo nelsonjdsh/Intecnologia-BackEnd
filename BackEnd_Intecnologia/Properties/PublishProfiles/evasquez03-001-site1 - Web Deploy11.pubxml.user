@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword />
-    <History>True|2022-11-21T08:17:36.9602462Z;True|2022-11-21T02:27:01.8347446-04:00;True|2022-11-21T00:28:28.4411941-04:00;</History>
+    <History>True|2022-11-21T17:34:40.2305640Z;True|2022-11-21T04:17:36.9602462-04:00;True|2022-11-21T02:27:01.8347446-04:00;True|2022-11-21T00:28:28.4411941-04:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <DestinationConnectionStrings Include="BACKConnection">

@@ -27,6 +27,7 @@ namespace BackEnd_Intecnologia.Models
         public virtual DbSet<TbluserStand> TbluserStands { get; set; } = null!;
         public virtual DbSet<TbluserType> TbluserTypes { get; set; } = null!;
         public virtual DbSet<Vwactivity> Vwactivities { get; set; } = null!;
+        public virtual DbSet<VwactivityPlaceUser> VwactivityPlaceUsers { get; set; } = null!;
         public virtual DbSet<Vwmessage> Vwmessages { get; set; } = null!;
         public virtual DbSet<Vwstand> Vwstands { get; set; } = null!;
         public virtual DbSet<Vwuser> Vwusers { get; set; } = null!;
@@ -154,6 +155,13 @@ namespace BackEnd_Intecnologia.Models
             modelBuilder.Entity<Vwactivity>(entity =>
             {
                 entity.ToView("VWActivity");
+            });
+
+            modelBuilder.Entity<VwactivityPlaceUser>(entity =>
+            {
+                entity.ToView("VWActivityPlaceUser");
+
+                entity.Property(e => e.PkidActivity).ValueGeneratedOnAdd();
             });
 
             modelBuilder.Entity<Vwmessage>(entity =>
