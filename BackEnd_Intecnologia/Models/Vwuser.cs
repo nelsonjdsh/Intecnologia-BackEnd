@@ -9,7 +9,8 @@ namespace BackEnd_Intecnologia.Models
     [Keyless]
     public partial class Vwuser
     {
-        public int IdUser { get; set; }
+        [Column("PKIdUser")]
+        public int PkidUser { get; set; }
         [StringLength(100)]
         public string EmailUser { get; set; } = null!;
         [StringLength(100)]
@@ -17,7 +18,7 @@ namespace BackEnd_Intecnologia.Models
         public int IdRole { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime CreationDateUser { get; set; }
-        [StringLength(16)]
+        [StringLength(200)]
         public string PasswordUser { get; set; } = null!;
         [Column("IDUserType")]
         public int IduserType { get; set; }

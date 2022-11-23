@@ -9,11 +9,6 @@ namespace BackEnd_Intecnologia.Models
     [Table("TBLStand")]
     public partial class Tblstand
     {
-        public Tblstand()
-        {
-            TbluserStands = new HashSet<TbluserStand>();
-        }
-
         [Key]
         [Column("PKIdStand")]
         public int PkidStand { get; set; }
@@ -27,7 +22,5 @@ namespace BackEnd_Intecnologia.Models
         [ForeignKey("IdStandType")]
         [InverseProperty("Tblstands")]
         public virtual TblstandType? IdStandTypeNavigation { get; set; }
-        [InverseProperty("FkidStandNavigation")]
-        public virtual ICollection<TbluserStand> TbluserStands { get; set; }
     }
 }

@@ -13,7 +13,6 @@ namespace BackEnd_Intecnologia.Models
         {
             TblmessageIdRecieverNavigations = new HashSet<Tblmessage>();
             TblmessageIdSenderNavigations = new HashSet<Tblmessage>();
-            TbluserStands = new HashSet<TbluserStand>();
         }
 
         [Key]
@@ -41,7 +40,5 @@ namespace BackEnd_Intecnologia.Models
         public virtual ICollection<Tblmessage> TblmessageIdRecieverNavigations { get; set; }
         [InverseProperty("IdSenderNavigation")]
         public virtual ICollection<Tblmessage> TblmessageIdSenderNavigations { get; set; }
-        [InverseProperty("FkidUserNavigation")]
-        public virtual ICollection<TbluserStand> TbluserStands { get; set; }
     }
 }
