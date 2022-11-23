@@ -21,21 +21,6 @@ namespace BackEnd_Intecnologia.Controllers
 		}
 
 		[HttpGet]
-		[Route("activitybyuser")]
-		public ActionResult Get(int IdUser)
-		{
-			var result = _activityServices.ActivityByUser(IdUser);
-			if (result.StringCode == "No hay registro con este Id")
-			{
-				return StatusCode(StatusCodes.Status204NoContent, new { result });
-			}
-			else
-			{
-				return StatusCode(StatusCodes.Status200OK, new { result });
-			}
-
-		}
-		[HttpGet]
 		[Route("activity")]
 		public ActionResult Get()
 		{
@@ -67,20 +52,6 @@ namespace BackEnd_Intecnologia.Controllers
 				return StatusCode(StatusCodes.Status200OK, new { result });
 			}
 
-		}
-		[HttpGet]
-		[Route("activitybyplace")]
-		public ActionResult GetByPlace(int IdLugar)
-		{
-			var result = _activityServices.GetActivityByPlace(IdLugar);
-			if (result.DataList.Count() == 0)
-			{
-				return StatusCode(StatusCodes.Status404NotFound, new { result }); ;
-			}
-			else
-			{
-				return StatusCode(StatusCodes.Status200OK, new { result }); ;
-			}
 		}
 
 		[HttpGet]

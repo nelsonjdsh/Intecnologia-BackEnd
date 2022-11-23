@@ -66,35 +66,6 @@ namespace BackEnd_Intecnologia.Controllers
 			}
 		}
 
-		[HttpGet]
-		[Route("authenticateuser")]
-		public IActionResult AuthenticateUser()
-        {
-            try
-            {
-				var jwt = Request.Cookies["jwt"];
-				var token = _JWTService.Verify(jwt);
-				int userId = int.Parse(token.Issuer);
-				var result = _IUserServices.GetUser(userId);
-				return Ok(result);
-            }
-            catch (Exception)
-            {
-				return Unauthorized();
-            }
-        }
-
-		[HttpPost]
-        [Route("logout")]
-		public IActionResult Logout()
-        {
-			Response.Cookies.Delete("jwt");
-			return Ok(new
-			{
-				message = "Logged Out"
-			});
-        }
-
 
 	}
 }
