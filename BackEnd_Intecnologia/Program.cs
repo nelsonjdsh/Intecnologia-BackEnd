@@ -75,7 +75,6 @@ builder.Services.AddDbContext<IntecContext>(options =>
 				options.UseSqlServer(builder.Configuration.GetConnectionString("BACKConnection")));
 builder.Services.AddMemoryCache();
 builder.Services.AddScoped<IUserServices, UserServices>();
-builder.Services.AddScoped<IStandServices, StandServices>();
 builder.Services.AddScoped<IMessageServices, MessageServices>();
 builder.Services.AddScoped<IActivityServices, ActivityServices>();
 

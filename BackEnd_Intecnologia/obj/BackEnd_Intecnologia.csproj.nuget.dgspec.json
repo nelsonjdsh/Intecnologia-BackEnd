@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vladimir González\\Documents\\GitHub\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj": {}
+    "C:\\Users\\Adm-PC\\source\\repos\\BackEnd_Intecnologia\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vladimir González\\Documents\\GitHub\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj": {
+    "C:\\Users\\Adm-PC\\source\\repos\\BackEnd_Intecnologia\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vladimir González\\Documents\\GitHub\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj",
+        "projectUniqueName": "C:\\Users\\Adm-PC\\source\\repos\\BackEnd_Intecnologia\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj",
         "projectName": "BackEnd_Intecnologia",
-        "projectPath": "C:\\Users\\Vladimir González\\Documents\\GitHub\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj",
-        "packagesPath": "C:\\Users\\Vladimir González\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vladimir González\\Documents\\GitHub\\Intecnologia-BackEnd\\BackEnd_Intecnologia\\obj\\",
+        "projectPath": "C:\\Users\\Adm-PC\\source\\repos\\BackEnd_Intecnologia\\BackEnd_Intecnologia\\BackEnd_Intecnologia.csproj",
+        "packagesPath": "C:\\Users\\Adm-PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Adm-PC\\source\\repos\\BackEnd_Intecnologia\\BackEnd_Intecnologia\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Vladimir González\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Adm-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -47,10 +48,6 @@
             "DotNetify.Core": {
               "target": "Package",
               "version": "[5.3.0, )"
-            },
-            "DotNetify.SignalR": {
-              "target": "Package",
-              "version": "[5.3.1, )"
             },
             "Microsoft.AspNet.Cors": {
               "target": "Package",
@@ -104,6 +101,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.11, 6.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.11, 6.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.11, 6.0.11]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.11, 6.0.11]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
