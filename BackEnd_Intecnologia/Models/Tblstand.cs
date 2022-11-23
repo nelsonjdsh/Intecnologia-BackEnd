@@ -22,6 +22,7 @@ namespace BackEnd_Intecnologia.Models
         [Column(TypeName = "datetime")]
         public DateTime? CreationDateStand { get; set; }
         public int? IdStandType { get; set; }
+        public bool? Stand { get; set; }
 
         [ForeignKey("IdStandType")]
         [InverseProperty("Tblstands")]

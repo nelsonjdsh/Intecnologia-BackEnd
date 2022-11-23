@@ -16,15 +16,23 @@ namespace BackEnd_Intecnologia.Models
         {
         }
 
+        public virtual DbSet<Agendum> Agenda { get; set; } = null!;
         public virtual DbSet<Tblactivity> Tblactivities { get; set; } = null!;
         public virtual DbSet<Tblmessage> Tblmessages { get; set; } = null!;
         public virtual DbSet<Tblrole> Tblroles { get; set; } = null!;
         public virtual DbSet<Tblstand> Tblstands { get; set; } = null!;
         public virtual DbSet<TblstandType> TblstandTypes { get; set; } = null!;
         public virtual DbSet<Tbluser> Tblusers { get; set; } = null!;
+        public virtual DbSet<TbluserActivity> TbluserActivities { get; set; } = null!;
         public virtual DbSet<TbluserStand> TbluserStands { get; set; } = null!;
         public virtual DbSet<TbluserType> TbluserTypes { get; set; } = null!;
+        public virtual DbSet<Vwactivity> Vwactivities { get; set; } = null!;
+        public virtual DbSet<VwactivityPlaceUser> VwactivityPlaceUsers { get; set; } = null!;
+        public virtual DbSet<Vwmessage> Vwmessages { get; set; } = null!;
+        public virtual DbSet<Vwstand> Vwstands { get; set; } = null!;
         public virtual DbSet<Vwuser> Vwusers { get; set; } = null!;
+        public virtual DbSet<VwuserActivity> VwuserActivities { get; set; } = null!;
+        public virtual DbSet<VwuserStand> VwuserStands { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -40,8 +48,6 @@ namespace BackEnd_Intecnologia.Models
             {
                 entity.HasKey(e => e.PkidActivity)
                     .HasName("PK__Activity__A117F6C409328BA2");
-
-                entity.Property(e => e.PkidActivity).ValueGeneratedNever();
 
                 entity.Property(e => e.CreationDateActivity).HasDefaultValueSql("(getdate())");
             });
@@ -113,6 +119,11 @@ namespace BackEnd_Intecnologia.Models
                     .HasConstraintName("FK_User.ID_UserType");
             });
 
+            modelBuilder.Entity<TbluserActivity>(entity =>
+            {
+                entity.Property(e => e.CreationDate).HasDefaultValueSql("(getdate())");
+            });
+
             modelBuilder.Entity<TbluserStand>(entity =>
             {
                 entity.HasKey(e => new { e.FkidUser, e.FkidStand })
@@ -141,11 +152,49 @@ namespace BackEnd_Intecnologia.Models
                 entity.Property(e => e.CreationDateUserType).HasDefaultValueSql("(getdate())");
             });
 
+            modelBuilder.Entity<Vwactivity>(entity =>
+            {
+                entity.ToView("VWActivity");
+            });
+
+            modelBuilder.Entity<VwactivityPlaceUser>(entity =>
+            {
+                entity.ToView("VWActivityPlaceUser");
+
+                entity.Property(e => e.PkidActivity).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<Vwmessage>(entity =>
+            {
+                entity.ToView("VWMessage");
+
+                entity.Property(e => e.PkidMessage).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<Vwstand>(entity =>
+            {
+                entity.ToView("VWStand");
+            });
+
             modelBuilder.Entity<Vwuser>(entity =>
             {
                 entity.ToView("VWUser");
 
                 entity.Property(e => e.IdUser).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<VwuserActivity>(entity =>
+            {
+                entity.ToView("VWUserActivity");
+
+                entity.Property(e => e.PkidActivity).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<VwuserStand>(entity =>
+            {
+                entity.ToView("VWUserStand");
+
+                entity.Property(e => e.PkidStand).ValueGeneratedOnAdd();
             });
 
             OnModelCreatingPartial(modelBuilder);

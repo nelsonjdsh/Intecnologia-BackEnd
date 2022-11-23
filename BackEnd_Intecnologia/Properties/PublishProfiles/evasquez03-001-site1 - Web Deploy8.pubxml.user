@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <History>False|2022-11-21T04:25:56.8922557Z;True|2022-11-20T23:59:39.8195219-04:00;False|2022-11-20T23:59:01.3201520-04:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="BACKConnection">
+      <Value>data source=sql8003.site4now.net%3binitial catalog=db_a8eb8c_intecnologia%3bUser Id=db_a8eb8c_intecnologia_admin%3bPassword=DevBackEnd123%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="BackEnd_Intecnologia.Models.IntecContext">
+      <Value>data source=sql8003.site4now.net%3binitial catalog=db_a8eb8c_intecnologia%3bUser Id=db_a8eb8c_intecnologia_admin%3bPassword=DevBackEnd123%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
