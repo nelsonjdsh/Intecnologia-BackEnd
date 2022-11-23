@@ -43,6 +43,7 @@ namespace BackEnd_Intecnologia.Services
 			var result = new Response<VwuserActivity>();
 			try
 			{
+		
 				var Identity = new SqlParameter("@Result", SqlDbType.Int) { Direction = ParameterDirection.Output };
 				Context.Database.ExecuteSqlInterpolated($"[dbo].[PRCAssignActivity] {AssignActivityEntity.FkidUser}, {AssignActivityEntity.FkidActivity}, {Identity} out");
 				var Data = Context.VwuserActivities.FromSqlRaw("[dbo].[PRCGetActivityByUser] {0}", AssignActivityEntity.FkidUser).ToList();
