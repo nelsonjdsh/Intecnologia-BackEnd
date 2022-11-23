@@ -16,7 +16,6 @@ namespace BackEnd_Intecnologia.Models
         {
         }
 
-        public virtual DbSet<Agendum> Agenda { get; set; } = null!;
         public virtual DbSet<Tblactivity> Tblactivities { get; set; } = null!;
         public virtual DbSet<Tblmessage> Tblmessages { get; set; } = null!;
         public virtual DbSet<Tblrole> Tblroles { get; set; } = null!;
@@ -24,7 +23,6 @@ namespace BackEnd_Intecnologia.Models
         public virtual DbSet<TblstandType> TblstandTypes { get; set; } = null!;
         public virtual DbSet<Tbluser> Tblusers { get; set; } = null!;
         public virtual DbSet<TbluserActivity> TbluserActivities { get; set; } = null!;
-        public virtual DbSet<TbluserStand> TbluserStands { get; set; } = null!;
         public virtual DbSet<TbluserType> TbluserTypes { get; set; } = null!;
         public virtual DbSet<Vwactivity> Vwactivities { get; set; } = null!;
         public virtual DbSet<VwactivityPlaceUser> VwactivityPlaceUsers { get; set; } = null!;
@@ -32,7 +30,6 @@ namespace BackEnd_Intecnologia.Models
         public virtual DbSet<Vwstand> Vwstands { get; set; } = null!;
         public virtual DbSet<Vwuser> Vwusers { get; set; } = null!;
         public virtual DbSet<VwuserActivity> VwuserActivities { get; set; } = null!;
-        public virtual DbSet<VwuserStand> VwuserStands { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -124,26 +121,6 @@ namespace BackEnd_Intecnologia.Models
                 entity.Property(e => e.CreationDate).HasDefaultValueSql("(getdate())");
             });
 
-            modelBuilder.Entity<TbluserStand>(entity =>
-            {
-                entity.HasKey(e => new { e.FkidUser, e.FkidStand })
-                    .HasName("PK__User_Sta__83C07128AB526080");
-
-                entity.Property(e => e.CreationDateUserStand).HasDefaultValueSql("(getdate())");
-
-                entity.HasOne(d => d.FkidStandNavigation)
-                    .WithMany(p => p.TbluserStands)
-                    .HasForeignKey(d => d.FkidStand)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_User_Stand.Id_Stand");
-
-                entity.HasOne(d => d.FkidUserNavigation)
-                    .WithMany(p => p.TbluserStands)
-                    .HasForeignKey(d => d.FkidUser)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_User_Stand.Id_User");
-            });
-
             modelBuilder.Entity<TbluserType>(entity =>
             {
                 entity.HasKey(e => e.PkidUserType)
@@ -180,7 +157,7 @@ namespace BackEnd_Intecnologia.Models
             {
                 entity.ToView("VWUser");
 
-                entity.Property(e => e.IdUser).ValueGeneratedOnAdd();
+                entity.Property(e => e.PkidUser).ValueGeneratedOnAdd();
             });
 
             modelBuilder.Entity<VwuserActivity>(entity =>
@@ -188,13 +165,6 @@ namespace BackEnd_Intecnologia.Models
                 entity.ToView("VWUserActivity");
 
                 entity.Property(e => e.PkidActivity).ValueGeneratedOnAdd();
-            });
-
-            modelBuilder.Entity<VwuserStand>(entity =>
-            {
-                entity.ToView("VWUserStand");
-
-                entity.Property(e => e.PkidStand).ValueGeneratedOnAdd();
             });
 
             OnModelCreatingPartial(modelBuilder);
